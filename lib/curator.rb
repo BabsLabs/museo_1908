@@ -1,3 +1,5 @@
+require './lib/file_io'
+
 class Curator
   attr_reader :photographs, :artists
 
@@ -44,6 +46,17 @@ class Curator
       end
     end
     photographs_taken_by_artist_from.flatten
+  end
+
+  def load_artists(file)
+    @artists = FileIO.load_artists(file)
+  end
+
+  def load_photographs(file)
+    @photographs =FileIO.load_photographs(file)
+  end
+
+  def photographs_taken_between(range)
   end
 
 end
