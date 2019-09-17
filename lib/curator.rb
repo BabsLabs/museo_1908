@@ -59,7 +59,6 @@ class Curator
   def photographs_taken_between(range)
     photos_taken_in_range = []
     @photographs.each do |photo|
-      # require 'pry'; binding.pry
       if photo.year.to_i >= range.min && photo.year.to_i <= range.max
         photos_taken_in_range << photo
       end
