@@ -15,23 +15,11 @@ class Curator
   end
 
   def find_artist_by_id(id)
-    artist_we_are_looking_for = ''
-    @artists.each do |artist|
-      if artist.id == id
-        artist_we_are_looking_for = artist
-      end
-    end
-    artist_we_are_looking_for
+    @artists.find { |artist| artist.id == id }
   end
 
   def find_photograph_by_id(id)
-    photo_we_are_looking_for = ''
-    @photographs.each do |photo|
-      if photo.id == id
-        photo_we_are_looking_for = photo
-      end
-    end
-    photo_we_are_looking_for
+    @photographs.find { |photo| photo.id == id }
   end
 
 end
