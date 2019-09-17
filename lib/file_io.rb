@@ -12,7 +12,8 @@ class FileIO
         died: row[:died],
         country: row[:country]
       }
-      artists << artist_hash
+      artist = Artist.new(artist_hash)
+      artists << artist
     end
     return artists
   end

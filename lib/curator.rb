@@ -66,4 +66,14 @@ class Curator
     photos_taken_in_range
   end
 
+  def artists_photographs_by_age(artist_to_check)
+    photos_by_age = Hash.new(0)
+    @photographs.each do |photo|
+      if artist_to_check.id == photo.artist_id
+        photos_by_age[photo.year.to_i - artist_to_check.born.to_i] = photo.name
+      end
+    end
+    photos_by_age
+  end
+
 end
