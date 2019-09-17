@@ -73,6 +73,33 @@ class CuratorTest < Minitest::Test
   end
 
   def test_can_add_photographs
+    @photo_1 = Photograph.new({
+         id: "1",
+         name: "Rue Mouffetard, Paris (Boy with Bottles)",
+         artist_id: "1",
+         year: "1954"
+    })
+
+    @photo_2 = Photograph.new({
+         id: "2",
+         name: "Moonrise, Hernandez",
+         artist_id: "2",
+         year: "1941"
+    })
+
+    @photo_3 = Photograph.new({
+         id: "3",
+         name: "Identical Twins, Roselle, New Jersey",
+         artist_id: "3",
+         year: "1967"
+    })
+
+    @photo_4 = Photograph.new({
+         id: "4",
+         name: "Monolith, The Face of Half Dome",
+         artist_id: "3",
+         year: "1927"
+    })
     @curator.add_photograph(@photo_1)
     assert_equal [@photo_1], @curator.photographs
     @curator.add_photograph(@photo_2)
@@ -141,7 +168,7 @@ class CuratorTest < Minitest::Test
   def test_can_find_photographs_taken_between_a_range
     @curator.load_photographs('./data/photographs.csv')
     @curator.load_artists('./data/artists.csv')
-    assert_equal [@photo_1, @photo_4], @curator.photographs_taken_between(1950..1965)
+    assert_equal [@curator.photographs[0], @curator.photographs[3]], @curator.photographs_taken_between(1950..1965)
   end
 
 end

@@ -27,7 +27,8 @@ class FileIO
         artist_id: row[:artist_id],
         year: row[:year],
       }
-      photographs << photograph_hash
+      photo = Photograph.new(photograph_hash)
+      photographs << photo
     end
     return photographs
   end
