@@ -22,4 +22,14 @@ class Curator
     @photographs.find { |photo| photo.id == id }
   end
 
+  def find_photographs_by_artist(artist)
+    artists_photos = []
+    @photographs.each do |photo|
+      if artist.id == photo.artist_id
+        artists_photos << photo
+      end
+    end
+    artists_photos
+  end
+
 end
