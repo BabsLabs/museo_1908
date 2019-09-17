@@ -5,7 +5,7 @@ require './lib/artist'
 class ArtistTest < Minitest::Test
 
   def setup
-    @attributes = attributes = {
+    @attributes = {
       id: "2",
       name: "Ansel Adams",
       born: "1902",
